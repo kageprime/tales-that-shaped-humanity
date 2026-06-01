@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 96%;
+    --foreground: 30 14% 9%;
+    --card: 36 25% 92%;
+    --card-foreground: 30 14% 9%;
+    --popover: 40 33% 96%;
+    --popover-foreground: 30 14% 9%;
+    --primary: 40 56% 58%;
+    --primary-foreground: 30 14% 9%;
+    --secondary: 0 38% 27%;
+    --secondary-foreground: 40 33% 96%;
+    --muted: 30 11% 86%;
+    --muted-foreground: 24 5% 41%;
+    --accent: 40 56% 58%;
+    --accent-foreground: 30 14% 9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 11% 86%;
+    --input: 30 11% 86%;
+    --ring: 40 56% 58%;
+    --radius: 0.75rem;
+    --sidebar-background: 30 14% 9%;
+    --sidebar-foreground: 40 33% 96%;
+    --sidebar-primary: 40 56% 58%;
+    --sidebar-primary-foreground: 30 14% 9%;
+    --sidebar-accent: 0 38% 27%;
+    --sidebar-accent-foreground: 40 33% 96%;
+    --sidebar-border: 30 11% 86%;
+    --sidebar-ring: 40 56% 58%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: 106.25%;
+    scroll-behavior: auto;
+  }
+
+  body {
+    @apply bg-parchment text-charcoal font-body antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-padding {
+    @apply py-[60px] md:py-[100px];
+  }
+
+  .content-max {
+    @apply max-w-[1400px] mx-auto px-5 md:px-8 lg:px-12;
+  }
+
+  .reading-max {
+    @apply max-w-[720px] mx-auto px-6;
+  }
+}
