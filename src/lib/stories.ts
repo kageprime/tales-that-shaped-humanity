@@ -35,7 +35,7 @@ export const stories: StoryData[] = [
     title: "The Creation",
     subtitle: "In the beginning, before time had a name...",
     featured: true,
-    episodes: ["e1-before-the-beginning", "e2-the-garden-and-the-voice"],
+    episodes: ["e1-before-the-beginning"],
     category: "Old Testament",
     cardImage: "/assets/card-creation.jpg",
     heroImage: "/assets/card-creation.jpg",
@@ -229,122 +229,6 @@ export const stories: StoryData[] = [
               "After a long time, Noah sent a little bird called a dove to check for dry land. The dove came back with a leaf! Yay!",
               "When they got off the boat, God put a beautiful RAINBOW in the sky. God said, 'I promise never to flood the whole world again.' And every time we see a rainbow, we remember God's promise!",
             ],
-          },
-        ],
-      },
-    },
-  },
-  {
-    slug: "garden",
-    title: "The Garden of Eden",
-    subtitle: "Where trust was tested, and a promise was planted in the ruins.",
-    episodes: ["e2-the-garden-and-the-voice"],
-    category: "Old Testament",
-    cardImage: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80",
-    heroImage: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600&q=80",
-    chapterImage: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=1200&q=80",
-    primaryColor: "#5B8C5A",
-    secondaryColor: "#1A2E1A",
-    readingTime: "10 min read",
-    perspectives: {
-      classic: {
-        chapters: [
-          {
-            number: "01",
-            title: "The Garden Planted",
-            paragraphs: [
-              "After the heavens and the earth were finished, the LORD God planted a garden in Eden, toward the east. There, in that place of delight and abundant water, He made every tree grow that is pleasing to the sight and good for food. In the midst of the garden stood the Tree of Life, and beside it, the Tree of the Knowledge of Good and Evil.",
-              "The LORD God formed the man from the dust of the ground — ha'adam from ha'adamah, earthling from earth — and breathed into his nostrils the breath of life. The man became a living being. God placed him in the garden to work it and keep it, and gave him a command: 'You may freely eat of every tree of the garden, but of the Tree of the Knowledge of Good and Evil you shall not eat, for in the day that you eat of it, you shall surely die.'",
-              "It was not a restriction meant to withhold good, but a boundary that defined relationship — a space for trust to grow. The Lord knew that love without choice is not love at all. And so the first gift of freedom was also the first invitation to trust.",
-            ],
-            quote: "You may freely eat of every tree — but of that one tree, you shall not eat.",
-          },
-          {
-            number: "02",
-            title: "The Serpent's Deception",
-            paragraphs: [
-              `Now the serpent was more subtle than any beast of the field that the LORD God had made. It came to the woman and asked, \u2018Did God actually say, \u201CYou shall not eat of any tree in the garden\u201D?\u2019 The question was a twisting \u2014 God had said \u2018eat freely of every tree,\u2019 but the serpent made Him sound restrictive, suspicious, severe.`,
-              `The woman answered, \u2018We may eat of the fruit of the trees of the garden, but God said, \u201CYou shall not eat of the fruit of the tree that is in the midst of the garden, neither shall you touch it, lest you die.\u201D\u2019 In her answer, the command had already begun to bend \u2014 God had never said \u2018touch.\u2019`,
-              "Then the serpent spoke the lie wrapped in a half-truth: 'You will not surely die. For God knows that when you eat of it, your eyes will be opened, and you will be like God, knowing good and evil.' The temptation was not to wickedness but to divinity — to no longer need to trust, to seize wisdom without dependence.",
-              "The woman saw that the tree was good for food, a delight to the eyes, and desirable for making one wise. She took of its fruit and ate. She gave some to her husband who was with her, and he ate. And their eyes were opened — not to glory, but to nakedness. The first human instinct after disobedience was not repentance, but concealment.",
-            ],
-            quote: "Their eyes were opened, and they knew that they were naked.",
-          },
-          {
-            number: "03",
-            title: "The Voice and the Exile",
-            paragraphs: [
-              "Then they heard the sound of the LORD God walking in the garden in the cool of the day. And the man and his wife hid themselves from the presence of the LORD God among the trees of the garden. But the LORD God called to the man and said, 'Where are you?' Not an interrogator's demand — a father's call to a hiding child.",
-              "The man answered, 'I heard your voice in the garden, and I was afraid, because I was naked, and I hid.' Fear, nakedness, hiding — three realities that had never existed before in a world that knew only safety and intimacy.",
-              "And then came the blame. The man said, 'The woman whom you gave to be with me, she gave me fruit of the tree, and I ate.' The woman said, 'The serpent deceived me, and I ate.' The perfect gift became an accusation. The fabric of relationship unraveled.",
-              "The LORD God pronounced the consequences: the serpent would crawl on its belly; the woman would experience pain in childbearing — yet life would continue; the ground would bring forth thorns — yet it would still yield food. And to Adam He said, 'For you are dust, and to dust you shall return.' Death entered the good creation.",
-              "But even in the judgment, mercy was interwoven. The LORD God made garments of skin to clothe them — an innocent life given to cover their shame. This was the first sacrifice, the first glimpse of a redemption that would one day be fulfilled in full. And in the curse upon the serpent, a promise was planted: 'He will bruise your head, and you will bruise his heel.'",
-              "Then the LORD God sent them out from the garden of Eden, lest they eat of the Tree of Life and live forever in brokenness. He placed cherubim and a flaming sword to guard the way back. It was not merely punishment — it was protection. Eternal life in a state of separation from God would be a prison. So God in His mercy closed the way and began the long, patient work of opening another.",
-            ],
-            quote: "The LORD God called to the man and said, 'Where are you?'",
-          },
-        ],
-      },
-      modern: {
-        chapters: [
-          {
-            number: "01",
-            title: "The Original Safe Place",
-            paragraphs: [
-              "Imagine a place where you never felt afraid — not of failure, not of judgment, not of being seen. Where every need was met before you even knew you had it. Where trust came as naturally as breathing. That was Eden.",
-              "God planted a garden — a curated wildness of beauty and abundance. And in the middle of it all, one simple boundary: a single tree you weren't supposed to touch. Not because God was keeping something good from you, but because some knowledge is too heavy for hearts that aren't ready for it. Like giving a child the keys to a car — the restriction isn't cruelty, it's love.",
-            ],
-            quote: "Some knowledge is too heavy for hearts that aren't ready.",
-          },
-          {
-            number: "02",
-            title: "The Question That Changed Everything",
-            paragraphs: [
-              "The serpent didn't start with a lie. It started with a question — the kind that makes you doubt the goodness of the One who loves you. 'Did God really say...?' That question has echoed through every temptation since. It's the voice that whispers, 'Maybe God isn't as generous as you thought.'",
-              "The woman saw the fruit and it looked good. Beautiful. Desirable. She took. She gave. And in that moment, trust shattered. The first thing they felt wasn't liberation — it was exposure. They covered themselves and hid. That's what shame does — it turns connection into concealment.",
-            ],
-            quote: "They didn't find freedom — they found fig leaves.",
-          },
-          {
-            number: "03",
-            title: "East of Eden",
-            paragraphs: [
-              "Then came the sound no one expected — God walking in the garden, calling their names. Not to punish. Not to destroy. To find them. 'Where are you?' God knew where they were. The question was for them — an invitation to stop hiding, to come out from behind their shame.",
-              "But instead of coming forward, they pointed fingers. The man blamed the woman and, indirectly, God Himself. The woman blamed the serpent. Nobody said, 'I'm sorry. I messed up.' That's the second tragedy of the fall — not just the disobedience, but the refusal to take responsibility.",
-              "The consequences were real — pain, toil, and eventually, death. But even then, God didn't abandon them. He made them clothes — the first sacrifice, an animal died so they could be covered. And He planted a promise in the curse itself: one day, a child would crush the head of the serpent.",
-              "The garden gate closed, but it wasn't the end. It was the beginning of a long, winding road back — a road that would lead through exile and wilderness, through prophets and kings, all the way to another garden, another tree, and an empty tomb.",
-            ],
-            quote: "The gate closed, but the story was far from over.",
-          },
-        ],
-      },
-      kids: {
-        chapters: [
-          {
-            number: "01",
-            title: "God's Perfect Garden",
-            paragraphs: [
-              "God made the most wonderful garden you can imagine! There were tall trees with yummy fruit, flowers of every color, rivers that sparkled in the sunshine, and animals that were friendly to everyone. It was the perfect place to live!",
-              "God put the first people — Adam and Eve — in this garden and said, 'You can eat fruit from ANY tree you want! Just one — that tree right there — that one is special. Don't eat from it, okay?' It was God's way of saying, 'Trust me. I know what's best for you.'",
-            ],
-          },
-          {
-            number: "02",
-            title: "The Sneaky Snake",
-            paragraphs: [
-              "A sneaky snake came to Eve and said, 'Did God really say you can't eat from ANY tree?' The snake was tricky! It made God sound mean. But God wasn't mean — He was good!",
-              "Eve looked at the fruit. It looked so yummy! She forgot that God knew what was best. She took a bite. She gave some to Adam, and he ate too. Then something terrible happened — they felt scared and embarrassed for the first time ever. They hid behind some bushes.",
-            ],
-          },
-          {
-            number: "03",
-            title: "God Still Loved Them",
-            paragraphs: [
-              "God came walking in the garden. 'Where are you?' God called. He knew where they were hiding. He just wanted them to come out so He could help them.",
-              "Adam said, 'I was scared!' Eve said, 'The snake tricked me!' Everybody blamed everybody else. But God didn't leave them all alone. He made them warm clothes from animal skins — the very first hug from Heaven. And God made a promise: one day, Someone special would come and fix everything that was broken.",
-              "They had to leave the beautiful garden, but God went with them. Even when we make mistakes, God still loves us. He never stops calling our name.",
-            ],
-            quote: "God never stops calling our name.",
           },
         ],
       },

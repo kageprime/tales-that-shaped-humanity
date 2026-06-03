@@ -234,7 +234,7 @@ function EpisodeCollection() {
     return () => observer.disconnect();
   }, []);
 
-  const filteredEpisodes = episodes.filter((ep) => ep.slug !== "e2-the-garden-and-the-voice");
+  const filteredEpisodes = episodes;
 
   return (
     <section className="bg-charcoal" ref={sectionRef}>

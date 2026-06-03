@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router";
-import { ArrowLeft, Headphones } from "lucide-react";
+import { Headphones } from "lucide-react";
 import { getEpisodeBySlug, getNextEpisode } from "@/lib/episodes";
 import { getEpisodeSceneConfig } from "@/lib/episode-scenes";
 import LiveWallpaper, { getWallpaperType } from "@/components/LiveWallpaper";
@@ -14,8 +14,6 @@ export default function EpisodePage() {
   const nextEpisode = getNextEpisode(episode?.slug ?? "");
 
   const [progressWidth, setProgressWidth] = useState(0);
-  const [navVisible, setNavVisible] = useState(true);
-  const navTimerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,16 +25,9 @@ export default function EpisodePage() {
       const scrolled = window.scrollY;
       const pct = Math.max(0, Math.min(100, (scrolled / total) * 100));
       setProgressWidth(pct);
-
-      setNavVisible(true);
-      if (navTimerRef.current) clearTimeout(navTimerRef.current);
-      navTimerRef.current = setTimeout(() => setNavVisible(false), 3000);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (navTimerRef.current) clearTimeout(navTimerRef.current);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   if (!episode) {
@@ -156,32 +147,6 @@ export default function EpisodePage() {
         </section>
       )}
 
-      {/* Floating nav */}
-      <div
-        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 bg-charcoal/90 backdrop-blur-[16px] rounded-[40px] px-5 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.3)] transition-opacity duration-300"
-        style={{ opacity: navVisible ? 1 : 0 }}
-      >
-        <Link
-          to="/episodes"
-          className="flex items-center gap-1.5 text-parchment font-ui text-[0.85rem] hover:text-amber transition-colors no-underline"
-        >
-          <ArrowLeft size={14} />
-          <span className="hidden sm:inline">Episodes</span>
-        </Link>
-        <div className="w-px h-6 bg-parchment/20" />
-        <div className="flex items-center gap-2 px-2">
-          {Array.from({ length: segmentCount }).map((_, i) => (
-            <div
-              key={i}
-              className="w-1.5 h-1.5 rounded-full transition-all duration-300"
-              style={{
-                backgroundColor: i === 0 ? episode.primaryColor : "rgba(250,246,238,0.3)",
-                width: i === 0 ? 16 : 6,
-              }}
-            />
-          ))}
-        </div>
-      </div>
     </div>
   );
 }

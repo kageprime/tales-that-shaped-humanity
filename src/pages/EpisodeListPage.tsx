@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { Play, Clock } from "lucide-react";
 import { episodes } from "@/lib/episodes";
 
-const visibleEpisodes = episodes.filter((ep) => ep.slug !== "e2-the-garden-and-the-voice");
+const visibleEpisodes = episodes;
 
 export default function EpisodeListPage() {
   return (
