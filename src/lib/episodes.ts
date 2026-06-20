@@ -11,7 +11,6 @@ export interface EpisodeData {
   title: string;
   subtitle: string;
   series: string;
-  narrator: string;
   posterImage: string;
   heroImage: string;
   primaryColor: string;
@@ -29,7 +28,6 @@ export const episodes: EpisodeData[] = [
     subtitle: "A meditation on the first lines of Genesis, where silence gives way to light.",
     featured: true,
     series: "BIBLEVERSE",
-    narrator: "Kuki Sage of Light",
     posterImage: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&q=80",
     heroImage: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1600&q=80",
     primaryColor: "#8B7EC8",
@@ -130,7 +128,6 @@ export const episodes: EpisodeData[] = [
     title: "The Garden and the Voice — Trust, Trees, and the Tear",
     subtitle: "A meditation on Eden, the fracture of trust, and the first thread of redemption.",
     series: "BIBLEVERSE",
-    narrator: "Kuki Sage of Light",
     posterImage: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80",
     heroImage: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600&q=80",
     primaryColor: "#5B8C5A",

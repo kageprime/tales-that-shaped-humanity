@@ -7,8 +7,6 @@ import HomePage from "@/pages/HomePage";
 import AboutPage from "@/pages/AboutPage";
 import StoriesPage from "@/pages/StoriesPage";
 import StoryPage from "@/pages/StoryPage";
-import ChatPage from "@/pages/ChatPage";
-import AdminPage from "@/pages/AdminPage";
 import EpisodePage from "@/pages/EpisodePage";
 import EpisodeListPage from "@/pages/EpisodeListPage";
 import { AuthModalProvider } from "@/components/AuthModal";
@@ -38,8 +36,6 @@ function App() {
                   <Route path="/about" element={<AboutPage />} />
                   <Route path="/stories" element={<StoriesPage />} />
                   <Route path="/stories/:slug" element={<StoryPage />} />
-                  <Route path="/chat" element={<ChatPage />} />
-                  <Route path="/admin" element={<AdminPage />} />
                   <Route path="/episodes" element={<EpisodeListPage />} />
                   <Route path="/episodes/:slug" element={<EpisodePage />} />
                 </Routes>

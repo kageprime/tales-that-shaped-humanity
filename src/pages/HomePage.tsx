@@ -4,6 +4,7 @@ import { ArrowRight, Play } from "lucide-react";
 import { stories } from "@/lib/stories";
 import { episodes } from "@/lib/episodes";
 import { cn } from "@/lib/utils";
+import { useReveal } from "@/hooks/useReveal";
 
 const heroImage = "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=2000&q=80";
 
@@ -69,31 +70,7 @@ function HeroSection() {
 }
 
 function StoryCollection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const els = section.querySelectorAll("[data-animate]");
-            els.forEach((el, i) => {
-              setTimeout(() => {
-                (el as HTMLElement).style.opacity = "1";
-                (el as HTMLElement).style.transform = "translateY(0)";
-              }, i * 100);
-            });
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
+  const sectionRef = useReveal<HTMLDivElement>({ threshold: 0.1, stagger: 100, attribute: "data-animate" });
 
   return (
     <section id="stories" className="bg-parchment" ref={sectionRef}>
@@ -208,33 +185,9 @@ function StoryCard({ story, index }: { story: (typeof stories)[0]; index: number
 }
 
 function EpisodeCollection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useReveal<HTMLDivElement>({ threshold: 0.1, stagger: 100, attribute: "data-animate" });
 
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const els = section.querySelectorAll("[data-animate]");
-            els.forEach((el, i) => {
-              setTimeout(() => {
-                (el as HTMLElement).style.opacity = "1";
-                (el as HTMLElement).style.transform = "translateY(0)";
-              }, i * 100);
-            });
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    observer.observe(section);
-    return () => observer.disconnect();
-  }, []);
-
-  const filteredEpisodes = episodes;
+  const displayEpisodes = episodes.slice(0, 3);
 
   return (
     <section className="bg-charcoal" ref={sectionRef}>
@@ -264,7 +217,7 @@ function EpisodeCollection() {
         </div>
 
         <div className="mt-14 space-y-3">
-          {filteredEpisodes.filter((ep) => ep.featured).map((ep, i) => (
+          {displayEpisodes.map((ep, i) => (
             <EpisodeCard key={ep.slug} episode={ep} index={i} />
           ))}
         </div>

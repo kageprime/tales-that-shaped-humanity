@@ -9,6 +9,7 @@ interface EpisodeChapterProps {
   primaryColor: string;
   number: number;
   total: number;
+  onVisible?: (soundDescription: string) => void;
 }
 
 export default function EpisodeChapter({
@@ -17,6 +18,7 @@ export default function EpisodeChapter({
   primaryColor,
   number,
   total,
+  onVisible,
 }: EpisodeChapterProps) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -36,15 +38,17 @@ export default function EpisodeChapter({
                 (c as HTMLElement).style.transform = "translateY(0)";
               }, 100 + i * 80);
             });
-            observer.unobserve(entry.target);
+            if (segment.sound && onVisible) {
+              onVisible(segment.sound);
+            }
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.3 }
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [segment.sound, onVisible]);
 
   return (
     <div

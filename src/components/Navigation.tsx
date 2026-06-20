@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router";
-import { X, Bot, Shield } from "lucide-react";
+import { X } from "lucide-react";
 import { useAuthModal } from "./AuthModal";
 import { cn } from "@/lib/utils";
 
@@ -78,26 +78,6 @@ export default function Navigation() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                to="/chat"
-                className={cn(
-                  "font-ui text-[0.75rem] tracking-[0.15em] uppercase no-underline transition-colors duration-300 flex items-center gap-1.5",
-                  isActive("/chat") ? "text-amber" : "text-parchment/80 hover:text-amber"
-                )}
-              >
-                <Bot size={13} />
-                Narrator
-              </Link>
-              <Link
-                to="/admin"
-                className={cn(
-                  "font-ui text-[0.75rem] tracking-[0.15em] uppercase no-underline transition-colors duration-300 flex items-center gap-1.5",
-                  isActive("/admin") ? "text-amber" : "text-parchment/50 hover:text-amber"
-                )}
-              >
-                <Shield size={13} />
-                Admin
-              </Link>
 
               <div className="w-px h-5 bg-parchment/15 mx-1" />
 
@@ -161,28 +141,6 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              to="/chat"
-              onClick={() => setMobileOpen(false)}
-              className={cn(
-                "font-ui text-[1.4rem] tracking-[0.08em] uppercase py-3 no-underline transition-colors flex items-center gap-3",
-                isActive("/chat") ? "text-amber" : "text-parchment hover:text-amber"
-              )}
-            >
-              <Bot size={18} />
-              Narrator
-            </Link>
-            <Link
-              to="/admin"
-              onClick={() => setMobileOpen(false)}
-              className={cn(
-                "font-ui text-[1.4rem] tracking-[0.08em] uppercase py-3 no-underline transition-colors flex items-center gap-3",
-                isActive("/admin") ? "text-amber" : "text-parchment/60 hover:text-amber"
-              )}
-            >
-              <Shield size={18} />
-              Admin
-            </Link>
             <div className="w-full h-px bg-parchment/15 my-6" />
             <button
               onClick={() => { setMobileOpen(false); openAuth("signin"); }}

@@ -1,6 +1,6 @@
-import { useEffect, useRef } from "react";
 import { BookOpen, Eye, Heart, Sparkles, Users, Globe } from "lucide-react";
 import { useAuthModal } from "@/components/AuthModal";
+import { useReveal } from "@/hooks/useReveal";
 
 const heroImage = "https://images.unsplash.com/photo-1504052434562-0f2f1b5e7e2a?w=2000&q=80";
 
@@ -49,31 +49,7 @@ function PageHero() {
 }
 
 function OurStory() {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const els = el.querySelectorAll("[data-animate]");
-            els.forEach((c, i) => {
-              setTimeout(() => {
-                (c as HTMLElement).style.opacity = "1";
-                (c as HTMLElement).style.transform = "translateY(0)";
-              }, i * 100);
-            });
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+  const ref = useReveal<HTMLDivElement>({ threshold: 0.1, stagger: 100, attribute: "data-animate" });
 
   return (
     <section className="bg-parchment py-20 md:py-28" ref={ref}>
@@ -136,31 +112,7 @@ function OurStory() {
 }
 
 function WhatWeBelieve() {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const els = el.querySelectorAll("[data-animate]");
-            els.forEach((c, i) => {
-              setTimeout(() => {
-                (c as HTMLElement).style.opacity = "1";
-                (c as HTMLElement).style.transform = "translateY(0)";
-              }, i * 100);
-            });
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+  const ref = useReveal<HTMLDivElement>({ threshold: 0.1, stagger: 100, attribute: "data-animate" });
 
   return (
     <section className="bg-mist/30 py-20 md:py-28" ref={ref}>
@@ -212,32 +164,8 @@ function WhatWeBelieve() {
 }
 
 function JoinCTA() {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useReveal<HTMLDivElement>({ threshold: 0.3, stagger: 150, attribute: "data-animate" });
   const { openAuth } = useAuthModal();
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const els = el.querySelectorAll("[data-animate]");
-            els.forEach((c, i) => {
-              setTimeout(() => {
-                (c as HTMLElement).style.opacity = "1";
-                (c as HTMLElement).style.transform = "translateY(0)";
-              }, i * 150);
-            });
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <section ref={ref} className="bg-charcoal py-20 md:py-[100px] text-center">

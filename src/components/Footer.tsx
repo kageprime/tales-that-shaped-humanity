@@ -22,10 +22,21 @@ export default function Footer() {
 
   return (
     <footer ref={footerRef} className="bg-dusk py-6" style={{ marginTop: "auto" }}>
-      <div className="content-max flex items-center justify-between">
+      <div className="content-max flex flex-col sm:flex-row items-center justify-between gap-4">
         <Link to="/" className="font-ui text-[0.85rem] text-parchment/50 no-underline hover:text-parchment/80 transition-colors">
           Tales That Shaped Humanity
         </Link>
+        <nav className="flex items-center gap-5">
+          <Link to="/about" className="font-ui text-[0.8rem] text-parchment/40 no-underline hover:text-parchment/70 transition-colors">
+            About
+          </Link>
+          <Link to="/stories" className="font-ui text-[0.8rem] text-parchment/40 no-underline hover:text-parchment/70 transition-colors">
+            Stories
+          </Link>
+          <Link to="/episodes" className="font-ui text-[0.8rem] text-parchment/40 no-underline hover:text-parchment/70 transition-colors">
+            Episodes
+          </Link>
+        </nav>
         <span className="font-ui text-[0.75rem] text-parchment/30">
           &copy; {new Date().getFullYear()}
         </span>

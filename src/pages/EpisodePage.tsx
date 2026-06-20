@@ -5,6 +5,7 @@ import { getEpisodeBySlug, getNextEpisode } from "@/lib/episodes";
 import { getEpisodeSceneConfig } from "@/lib/episode-scenes";
 import LiveWallpaper, { getWallpaperType } from "@/components/LiveWallpaper";
 import EpisodeChapter from "@/components/EpisodeChapter";
+import { useAmbientSound } from "@/hooks/useAmbientSound";
 
 export default function EpisodePage() {
   const { slug } = useParams<{ slug: string }>();
@@ -12,6 +13,7 @@ export default function EpisodePage() {
   const sceneConfig = getEpisodeSceneConfig(slug || "");
   const scenes = sceneConfig?.scenes;
   const nextEpisode = getNextEpisode(episode?.slug ?? "");
+  const ambient = useAmbientSound();
 
   const [progressWidth, setProgressWidth] = useState(0);
 
@@ -27,7 +29,9 @@ export default function EpisodePage() {
       setProgressWidth(pct);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   if (!episode) {
@@ -42,8 +46,6 @@ export default function EpisodePage() {
       </div>
     );
   }
-
-  const segmentCount = episode.segments.length;
 
   return (
     <div className="bg-[#0a0a0a] text-parchment">
@@ -85,10 +87,6 @@ export default function EpisodePage() {
           <p className="font-body font-light italic text-[clamp(1rem,2vw,1.3rem)] text-parchment/60 max-w-[480px] mx-auto mt-4">
             {episode.subtitle}
           </p>
-          <div className="flex items-center justify-center gap-3 mt-8 text-parchment/50">
-            <Headphones size={14} />
-            <span className="font-ui text-[0.85rem]">Narrated by {episode.narrator}</span>
-          </div>
         </div>
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[2] flex flex-col items-center gap-2">
@@ -105,14 +103,15 @@ export default function EpisodePage() {
       <div className="relative z-[1] content-max pb-24 md:pb-32">
         <div className="flex flex-col gap-8 md:gap-10">
           {episode.segments.map((segment, i) => (
-            <EpisodeChapter
-              key={i}
-              segment={segment}
-              scene={scenes?.[i]}
-              primaryColor={episode.primaryColor}
-              number={i + 1}
-              total={segmentCount}
-            />
+              <EpisodeChapter
+                key={i}
+                segment={segment}
+                scene={scenes?.[i]}
+                primaryColor={episode.primaryColor}
+                number={i + 1}
+                total={episode.segments.length}
+                onVisible={ambient.play}
+              />
           ))}
         </div>
       </div>

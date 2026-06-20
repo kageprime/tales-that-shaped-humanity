@@ -3,8 +3,6 @@ import { Link } from "react-router";
 import { Play, Clock } from "lucide-react";
 import { episodes } from "@/lib/episodes";
 
-const visibleEpisodes = episodes;
-
 export default function EpisodeListPage() {
   return (
     <div className="bg-[#0a0a0a] min-h-[100dvh]">
@@ -32,7 +30,7 @@ export default function EpisodeListPage() {
       <section className="pb-24 md:pb-32">
         <div className="content-max">
           <div className="grid gap-5">
-            {visibleEpisodes.map((ep, i) => (
+            {episodes.map((ep, i) => (
               <EpisodeCard key={ep.slug} episode={ep} index={i} />
             ))}
           </div>

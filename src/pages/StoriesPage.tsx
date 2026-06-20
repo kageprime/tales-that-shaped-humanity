@@ -1,6 +1,6 @@
-import { useEffect, useRef } from "react";
 import { Link } from "react-router";
 import { stories } from "@/lib/stories";
+import { useReveal } from "@/hooks/useReveal";
 
 const heroImage = "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=2000&q=80";
 
@@ -38,31 +38,7 @@ function StoriesHero() {
 }
 
 function StoriesGrid() {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const cards = el.querySelectorAll("[data-animate]");
-            cards.forEach((card, i) => {
-              setTimeout(() => {
-                (card as HTMLElement).style.opacity = "1";
-                (card as HTMLElement).style.transform = "translateY(0)";
-              }, i * 100);
-            });
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.05 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+  const ref = useReveal<HTMLDivElement>({ threshold: 0.05, stagger: 100, attribute: "data-animate" });
 
   return (
     <section className="bg-parchment" ref={ref}>
